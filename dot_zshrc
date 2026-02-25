@@ -1,0 +1,38 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+setopt appendhistory
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/matt/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+#nerdfetch
+
+export EDITOR=nvim
+export TERMINAL=kitty
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$PATH:$GEM_HOME/bin"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+alias tm="tmux"
+alias ta="tmux attach"
+alias vi="nvim"
+alias jss="npx http-server . -o -p 8000" #start js server in cwd
+alias pwr="shutdown"
+alias pm="ps -ef | fzf" #fuzzyfind processes
+alias sson="xset s on -dpms" #turn screen blank on
+alias ssoff="xset s off -dpms" #turn screen blank off
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
